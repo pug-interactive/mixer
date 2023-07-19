@@ -20,7 +20,7 @@
 %%
 -module(mixer).
 
--export([parse_transform/2]).
+-export([parse_transform_info/0, parse_transform/2]).
 
 -define(arity_limit, 26).
 
@@ -29,6 +29,9 @@
                 fname,
                 alias,
                 arity}).
+
+parse_transform_info() ->
+    #{'error_location' => 'line'}.
 
 -spec parse_transform([term()], [term()]) -> [term()].
 parse_transform(Forms, _Options) ->
